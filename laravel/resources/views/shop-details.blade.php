@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout/shop-details')
 @section('body')
      <!-- Shop Details Section Begin -->
     <section class="shop-details">

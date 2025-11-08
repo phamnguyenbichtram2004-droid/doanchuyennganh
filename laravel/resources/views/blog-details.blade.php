@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout/blog-details')
 @section('body')
     <!-- Blog Details Hero Begin -->
     <section class="blog-hero spad">

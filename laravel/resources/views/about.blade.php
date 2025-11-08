@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout/about')
 @section('body')
    <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">

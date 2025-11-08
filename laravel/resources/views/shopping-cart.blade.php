@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout/shopping-cart')
 @section('body')
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">

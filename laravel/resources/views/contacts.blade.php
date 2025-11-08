@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout/contacts')
 @section('body')
   <!-- Map Begin -->
     <div class="map">

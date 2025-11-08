@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout/home')
 @section('body')
    <!-- Hero Section Begin -->
     <section class="hero">
