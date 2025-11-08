@@ -29,3 +29,13 @@ Route::get('/checkout', function () {
 Route::get('/blog-details', function () {
     return view('blog-details');
 })->name('blog-details');
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin');
+Route::get('/admin/category', function () {
+    return view('admin/category/category-list');
+})->name('category');
+
+Route::get('/admin/product', function () {
+    return view('admin/product/product-list');
+})->name('product');
