@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,10 +34,14 @@ Route::get('/blog-details', function () {
 Route::get('/admin', function () {
     return view('admin');
 })->name('admin');
-Route::get('/admin/category', function () {
-    return view('admin/category/category-list');
-})->name('category');
+Route::get('/customer', function () {
+    return view('customer');
+})->name('customer');
 
-Route::get('/admin/product', function () {
-    return view('admin/product/product-list');
-})->name('product');
+
+Route::get('logout',[HomeController::class,'logout'])->name('logout');
+    Route::get('/admin/category', [App\Http\Controllers\CategoryController::class, 'index']);
+    Route::get('/admin/product', [App\Http\Controllers\ProductController::class, 'index']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

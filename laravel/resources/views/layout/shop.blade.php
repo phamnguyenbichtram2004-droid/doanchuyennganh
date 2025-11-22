@@ -10,7 +10,6 @@
     <title>Male-Fashion | Template</title>
     <base href="{{asset('public/')}}">
 
-
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
     rel="stylesheet">
@@ -113,6 +112,7 @@
                                 </ul>
                             </li>
                             <li><a href="{{route('blog')}}">Blog</a></li>
+                            
                             <li><a href="{{route('contacts')}}">Contacts</a></li>
                         </ul>
                     </nav>

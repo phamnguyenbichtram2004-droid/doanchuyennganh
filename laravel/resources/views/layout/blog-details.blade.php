@@ -112,6 +112,7 @@
                                 </ul>
                             </li>
                             <li><a href="{{route('blog')}}">Blog</a></li>
+                            
                             <li><a href="{{route('contacts')}}">Contacts</a></li>
                         </ul>
                     </nav>
