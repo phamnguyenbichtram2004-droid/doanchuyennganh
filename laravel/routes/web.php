@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -40,8 +41,15 @@ Route::get('/customer', function () {
 
 
 Route::get('logout',[HomeController::class,'logout'])->name('logout');
-    Route::get('/admin/category', [App\Http\Controllers\CategoryController::class, 'index']);
-    Route::get('/admin/product', [App\Http\Controllers\ProductController::class, 'index']);
+    // Route::get('/admin/category', [App\Http\Controllers\CategoryController::class, 'index']);
+    // Route::get('/admin/product', [App\Http\Controllers\ProductController::class, 'index']);
+     Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('category', CategoryController::class);
+        Route::resource('product',ProductController::class);
+    });
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

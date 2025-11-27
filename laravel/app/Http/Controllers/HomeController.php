@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -24,12 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('home');
     }
-    public function logout(){
+     public function logout(){
         if(Auth::check()){
             Auth::logout();
         }
-        return redirect("/");
+        return redirect('/');
     }
 }

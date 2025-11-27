@@ -2,8 +2,7 @@
 @section('body')
    <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Product</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-plus fa-sm text-white-50"></i> + Add
+           <a href="{{ route('admin.product.create') }}" class="btn btn-primary">Add</a>
         </a>
     </div>
 
@@ -18,7 +17,7 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Gia</th>
+                            <th>Last</th>
                             <th>Handle</th>
                             <th>Views</th>
                             <th>Edit</th>
@@ -26,24 +25,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($products as $product)
-                            <tr>
-                                <td>{{ $product->id }}</td>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->gia }}</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td><i class="fa-solid fa-eye text-info"></i></td>
-                                <td><i class="fa-solid fa-pen-to-square text-warning"></i></td>
-                                <td><i class="fa-solid fa-trash text-danger"></i></td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="7" class="text-center py-4 text-muted">
-                                    Chưa có dữ liệu
-                                </td>
-                            </tr>
-                        @endforelse
+                       @forelse($products as $object)
+            <tr>
+                <th scope="row">{{ $object->id }}</th>
+                <td>{{$object->name}}</td>
+                <td>otto</td>
+                <td>@gc</td>
+
+                <td><a href=""><i class="fa-solid fa-eye text-info"></i></a></td>
+   <td><a href=" {{ route('admin.product.edit',['product'=>$object->id]) }}  "><i class="fa-solid fa-pen-to-square text-warning"></i></a></td>
+                <td><a href="{{route('admin.product.destroy',['product'=>$object->id])}}" title="Delete {{$object->name}}" onclick="event.preventDefault();window.confirm('Bạn đã chắc chắn xóa '+ '{{$object->name}}' +' chưa?') ?document.getElementById('product-delete-{{ $object->id }}').submit() :0;" class="btn btn-danger"><i class="far fa-trash-alt"></i>
+                              <form action="{{ route('admin.product.destroy', ['product' => $object->id]) }}" method="post" id="product-delete-{{ $object->id }}">
+                                  {{ csrf_field() }}
+                                  {{ method_field('delete') }}
+                              </form>
+                          </a></td>
+            </tr>
+            @empty
+            <tr>
+                <td>Chưa có dữ liệu!</td>
+            </tr>
+            @endforelse
                     </tbody>
                 </table>
             </div>
